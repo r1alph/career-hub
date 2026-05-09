@@ -6,6 +6,7 @@ import CareerCommandCenter from './pages/CareerCommandCenter.jsx';
 import IndustryIntelligence from './pages/IndustryIntelligence.jsx';
 import FiveGPathway from './pages/FiveGPathway.jsx';
 import ProjectPortfolio from './pages/ProjectPortfolio.jsx';
+import TechSkillsMastery from './pages/TechSkillsMastery.jsx';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Home', icon: '🏠' },
@@ -13,6 +14,7 @@ const NAV_ITEMS = [
   { path: '/industry', label: 'Top 100', icon: '🏢' },
   { path: '/5g-path', label: '5G Pathway', icon: '📡' },
   { path: '/projects', label: 'Projects', icon: '🔧' },
+  { path: '/tech-skills', label: 'Skills', icon: '♾️' },
 ];
 
 function NavBar() {
@@ -59,6 +61,7 @@ function HomePage() {
     { path: '/industry', icon: '🏢', title: 'Top 100 Companies', desc: '100 wireless & telecom companies, skills matrix, certification roadmap, gap analysis', color: '#E8553D', stat: '100 Companies + Skills' },
     { path: '/5g-path', icon: '📡', title: '5G Engineer Pathway', desc: '5-section learning path with checkable concepts, curated resources, certifications', color: '#10B981', stat: '36-Week Path' },
     { path: '/projects', icon: '🔧', title: 'Project Portfolio', desc: '12 hands-on projects mapped to jobs, companies, and skills. Build real systems.', color: '#8B5CF6', stat: '12 Projects + Steps' },
+    { path: '/tech-skills', icon: '♾️', title: 'Tech Skills Mastery', desc: 'Python, SQL, AWS, Docker, K8s, Terraform, Ansible, Jenkins, Security, DevOps.', color: '#EC4899', stat: '10 Skills + 6 Projects' },
   ];
 
   return (
@@ -142,6 +145,7 @@ export default function App() {
           <Route path="/industry" element={<IndustryIntelligence />} />
           <Route path="/5g-path" element={<FiveGPathway />} />
           <Route path="/projects" element={<ProjectPortfolio />} />
+          <Route path="/tech-skills" element={<TechSkillsMastery />} />
         </Routes>
       </div>
       <NavBar />
