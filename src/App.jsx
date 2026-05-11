@@ -7,6 +7,7 @@ import IndustryIntelligence from './pages/IndustryIntelligence.jsx';
 import FiveGPathway from './pages/FiveGPathway.jsx';
 import ProjectPortfolio from './pages/ProjectPortfolio.jsx';
 import TechSkillsMastery from './pages/TechSkillsMastery.jsx';
+import MasterPlan from './pages/MasterPlan.jsx';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Home', icon: '🏠' },
@@ -15,6 +16,7 @@ const NAV_ITEMS = [
   { path: '/5g-path', label: '5G Pathway', icon: '📡' },
   { path: '/projects', label: 'Projects', icon: '🔧' },
   { path: '/tech-skills', label: 'Skills', icon: '♾️' },
+  { path: '/master-plan', label: 'Plan', icon: '📋' },
 ];
 
 function NavBar() {
@@ -62,6 +64,7 @@ function HomePage() {
     { path: '/5g-path', icon: '📡', title: '5G Engineer Pathway', desc: '5-section learning path with checkable concepts, curated resources, certifications', color: '#10B981', stat: '36-Week Path' },
     { path: '/projects', icon: '🔧', title: 'Project Portfolio', desc: '12 hands-on projects mapped to jobs, companies, and skills. Build real systems.', color: '#8B5CF6', stat: '12 Projects + Steps' },
     { path: '/tech-skills', icon: '♾️', title: 'Tech Skills Mastery', desc: 'Python, SQL, AWS, Docker, K8s, Terraform, Ansible, Jenkins, Security, DevOps.', color: '#EC4899', stat: '10 Skills + 6 Projects' },
+    { path: '/master-plan', icon: '📋', title: '24-Week Master Plan', desc: 'Unified daily timetable combining all dashboards — skills, 5G, projects, certs, LinkedIn — into one trackable schedule.', color: '#E8553D', stat: '24 Weeks · All-in-One' },
   ];
 
   return (
@@ -146,6 +149,7 @@ export default function App() {
           <Route path="/5g-path" element={<FiveGPathway />} />
           <Route path="/projects" element={<ProjectPortfolio />} />
           <Route path="/tech-skills" element={<TechSkillsMastery />} />
+          <Route path="/master-plan" element={<MasterPlan />} />
         </Routes>
       </div>
       <NavBar />
