@@ -267,6 +267,100 @@ const projects = [
     repos:["https://github.com/srsran/srsRAN_Project","https://gitlab.eurecom.fr/oai/openairinterface5g","https://github.com/srsran/oran-sc-ric"],
     deliverables:["3+ merged pull requests","Contributor badge on GitHub","Code review participation","LinkedIn post per merged PR","Reference from maintainers (invaluable for job apps)"],
   },
+
+  // ── TIER 5: TELCOCLOUD SPECIALIZATION (Weeks 25–30) ──
+  { id:13, tier:5, title:"Cloud-Native 5G Core on OpenStack", difficulty:"Expert", duration:"2 weeks", color:"#7C3AED",
+    tagline:"Deploy a full 5G Core on OpenStack — the platform carriers actually use in production.",
+    why:"Most cloud engineers only know AWS/Azure. Carriers (Verizon, AT&T, T-Mobile) run private clouds on OpenStack. This project proves you can work in real carrier infrastructure, not just public cloud.",
+    skills:["OpenStack","5G Core","Neutron Networking","Docker","Linux","NFV"],
+    mapsTo:["Verizon","AT&T","T-Mobile","Nokia","Ericsson","Samsung","DISH"],
+    jobTitles:["TelcoCloud Engineer","Cloud Network Engineer","5G Core Engineer","NFV Engineer"],
+    steps:[
+      "Install DevStack (all-in-one) on Ubuntu 22.04 VM (16GB RAM, 8 cores)",
+      "Configure Keystone (identity), Nova (compute), Neutron (networking), Glance (images)",
+      "Create 3 virtual networks in Neutron: N2 (signaling), N3 (user plane), N6 (data network)",
+      "Launch Ubuntu VMs on Nova for each 5G NF (AMF, SMF, UPF, NRF)",
+      "Install Open5GS on each VM, configure interfaces to use Neutron networks",
+      "Configure subscriber database and slice parameters via Open5GS WebUI",
+      "Deploy UERANSIM on separate VM, connect to AMF via N2 network",
+      "Test: UE registration, PDU session, ping through UPF to internet",
+      "Benchmark: throughput (iperf3), latency, compare vs Docker and K8s deployments",
+      "Document: architecture diagram (OpenStack + 5GC), deployment guide, performance comparison report",
+      "Push to GitHub with Heat templates for automated deployment",
+    ],
+    tools:["OpenStack (DevStack)","Open5GS","UERANSIM","Neutron","Heat","Linux","iperf3"],
+    repos:["https://docs.openstack.org/devstack/latest/","https://open5gs.org/open5gs/docs/","https://github.com/aligungr/UERANSIM"],
+    deliverables:["GitHub repo: '5gc-openstack'","OpenStack Heat templates for one-click 5GC","Architecture diagram (Neutron networks + NFs)","Performance comparison: OpenStack vs Docker vs K8s","LinkedIn article: 'Why carriers run 5G on OpenStack, not just AWS'"],
+  },
+  { id:14, tier:5, title:"MLOps Pipeline for Telecom KPIs", difficulty:"Expert", duration:"3 weeks", color:"#FF6B35",
+    tagline:"Build an end-to-end ML pipeline: ingest 5G KPIs → train traffic forecasting model → deploy on K8s → auto-retrain when accuracy drops.",
+    why:"AI in Telecom is the fastest-growing specialization. But companies don't want researchers who can only train models in notebooks — they want engineers who can deploy, monitor, and retrain ML models in production. This project proves you can do the full MLOps lifecycle.",
+    skills:["Python","TensorFlow","Kafka","MLflow","Kubernetes","FastAPI","Grafana","Docker"],
+    mapsTo:["Google","Nokia","Ericsson","T-Mobile","Verizon","Qualcomm","Samsung","Accenture"],
+    jobTitles:["AI/ML Engineer — Telecom","Data Science Intern","ML Engineering Intern","AIOps Engineer"],
+    steps:[
+      "Generate synthetic 5G KPI data: RSRP, SINR, throughput, latency, UE count (Python script, 1M+ rows)",
+      "Set up Apache Kafka for real-time KPI ingestion (Docker Compose)",
+      "Build Python consumer: Kafka → feature engineering → PostgreSQL storage",
+      "Train LSTM model for traffic forecasting (predict throughput 1-hour ahead) with TensorFlow",
+      "Track experiments with MLflow: log params, metrics, model artifacts",
+      "Package model as FastAPI endpoint: POST /predict with KPI features, returns forecast",
+      "Containerize inference service with Docker, deploy on Kubernetes",
+      "Build Grafana dashboard: real-time predictions vs actual KPIs, accuracy metrics",
+      "Implement anomaly detection layer: flag when predicted vs actual diverges (autoencoder)",
+      "Build automated retraining pipeline: when accuracy drops below 85%, trigger retrain → redeploy",
+      "Add Prometheus metrics for model latency, prediction count, drift detection",
+      "Document: MLOps architecture, model card, deployment runbook",
+    ],
+    tools:["Python","TensorFlow","Kafka","MLflow","FastAPI","Docker","Kubernetes","Grafana","Prometheus","PostgreSQL"],
+    repos:["https://mlflow.org/docs/latest/index.html","https://kafka.apache.org/quickstart","https://www.tensorflow.org/tutorials/structured_data/time_series"],
+    deliverables:["GitHub repo: 'telco-mlops-pipeline'","MLflow experiment dashboard screenshots","Grafana KPI prediction dashboard","Model card with accuracy metrics","LinkedIn article: 'Building an MLOps pipeline for 5G network optimization'"],
+  },
+  { id:15, tier:5, title:"Full MANO Deployment with OSM", difficulty:"Expert", duration:"2 weeks", color:"#059669",
+    tagline:"Deploy Open Source MANO, onboard your 5G Core as a CNF, and demonstrate automated scaling and self-healing — the core of carrier network operations.",
+    why:"MANO (Management and Orchestration) is how carriers manage thousands of VNFs/CNFs across their network. Knowing OSM or ONAP is a massive differentiator — very few candidates have hands-on MANO experience.",
+    skills:["OSM","NFV","MANO","Kubernetes","Docker","5G Core","Python","Juju"],
+    mapsTo:["Nokia","Ericsson","Verizon","AT&T","T-Mobile","Mavenir","DISH","Samsung"],
+    jobTitles:["NFV/SDN Engineer","TelcoCloud Engineer","Network Automation Engineer","5G Core DevOps Engineer"],
+    steps:[
+      "Install Open Source MANO (OSM Release 14+) on Ubuntu with Docker/K8s backend",
+      "Explore OSM dashboard: VIM accounts, NS catalog, VNF catalog",
+      "Register your K8s cluster as a VIM (Virtualized Infrastructure Manager) in OSM",
+      "Create VNF descriptor (VNFD) for Open5GS AMF as a containerized NF",
+      "Create Network Service descriptor (NSD) bundling AMF + SMF + UPF",
+      "Instantiate the NS: OSM deploys all NFs on K8s automatically",
+      "Configure day-1 operations: initial config pushed to NFs via cloud-init/Juju charms",
+      "Configure day-2 operations: runtime config changes via primitives (e.g., add subscriber)",
+      "Test auto-scaling: generate load → OSM scales UPF instances from 1 to 3",
+      "Test self-healing: kill an NF pod → OSM detects failure → auto-restarts",
+      "Document: MANO architecture, descriptor files, scaling/healing evidence",
+    ],
+    tools:["Open Source MANO","Kubernetes","Docker","Juju","Open5GS","UERANSIM","Python"],
+    repos:["https://osm.etsi.org/docs/user-guide/","https://osm.etsi.org/wikipub/index.php/Main_Page","https://juju.is/docs"],
+    deliverables:["GitHub repo: 'osm-5gc-mano'","VNF/NS descriptor files","Auto-scaling demo video (30 seconds)","Self-healing demo video (30 seconds)","LinkedIn post: 'Automating 5G NF lifecycle with ETSI MANO and OSM'"],
+  },
+  { id:16, tier:5, title:"Edge Computing: 5G URLLC on AWS Wavelength", difficulty:"Advanced", duration:"1.5 weeks", color:"#0EA5E9",
+    tagline:"Deploy a low-latency application at the 5G edge using AWS Wavelength — proving you understand MEC and URLLC end-to-end.",
+    why:"Edge computing is where 5G delivers on its URLLC promise (<10ms latency). AWS Wavelength, Azure Operator Nexus, and Google Distributed Cloud are the platforms. This project shows you can build at the edge, not just in the cloud.",
+    skills:["AWS","MEC","Edge Computing","Docker","5G","Python","Networking"],
+    mapsTo:["Amazon (Kuiper/AWS)","Verizon","T-Mobile","AT&T","Microsoft","Google","Accenture","Nokia"],
+    jobTitles:["Cloud Network Engineer","Edge Computing Engineer","5G Solutions Architect","TelcoCloud Engineer"],
+    steps:[
+      "Study MEC (Multi-access Edge Computing) architecture: ETSI MEC framework",
+      "Set up AWS account with Wavelength Zone access (request in AWS console)",
+      "Create VPC with Wavelength subnets attached to carrier gateway",
+      "Launch EC2 instance in Wavelength Zone (closest to 5G base station)",
+      "Deploy low-latency application: real-time video processing or game server (Docker)",
+      "Build latency measurement tool: client → edge app → measure RTT",
+      "Compare latency: Wavelength edge (<10ms) vs regular AWS region (50-100ms)",
+      "Connect to your Open5GS 5G Core: route URLLC slice traffic to edge app",
+      "Build dashboard showing real-time latency comparison (edge vs cloud)",
+      "Document: MEC architecture, AWS Wavelength setup, latency benchmarks",
+    ],
+    tools:["AWS Wavelength","EC2","VPC","Docker","Python","Open5GS"],
+    repos:["https://aws.amazon.com/wavelength/","https://docs.aws.amazon.com/wavelength/","https://www.etsi.org/technologies/multi-access-edge-computing"],
+    deliverables:["GitHub repo: '5g-edge-wavelength'","Latency benchmark report (edge vs cloud)","Architecture diagram (MEC + 5G + AWS)","Real-time latency dashboard","LinkedIn post: 'URLLC at the edge: <10ms latency with AWS Wavelength + 5G'"],
+  },
 ];
 
 const tierMeta = {
@@ -274,6 +368,7 @@ const tierMeta = {
   2:{label:"Core Skills",color:"#10B981",desc:"These are what hiring managers actually test for"},
   3:{label:"Differentiators",color:"#F59E0B",desc:"These set you apart from 95% of candidates"},
   4:{label:"Moonshots",color:"#E8553D",desc:"These put you in the top 1% — portfolio legends"},
+  5:{label:"TelcoCloud",color:"#7C3AED",desc:"Carrier-grade skills — OpenStack, MANO, MLOps, Edge"},
 };
 
 const diffColors = { Intermediate:"#2563EB", Advanced:"#F59E0B", Expert:"#E8553D" };
@@ -338,7 +433,7 @@ export default function ProjectPortfolio(){
               <div style={{width:36,height:36,borderRadius:9,background:"linear-gradient(135deg,#E8553D,#7C3AED)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:14,fontWeight:800,fontFamily:"Syne",color:"#fff"}}>⚡</div>
               <div>
                 <h1 style={{fontSize:15,fontWeight:800,fontFamily:"Syne",color:"#F1F5F9"}}>Project Portfolio Builder</h1>
-                <p style={{fontSize:9,color:"#334155",fontFamily:"Space Mono",letterSpacing:1}}>12 PROJECTS · 4 TIERS · HANDS-ON · PORTFOLIO-READY</p>
+                <p style={{fontSize:9,color:"#334155",fontFamily:"Space Mono",letterSpacing:1}}>16 PROJECTS · 5 TIERS · HANDS-ON · PORTFOLIO-READY</p>
               </div>
             </div>
             <div style={{textAlign:"right"}}>
@@ -347,13 +442,13 @@ export default function ProjectPortfolio(){
             </div>
           </div>
           <div style={{display:"flex",gap:4}}>
-            {["all","1","2","3","4"].map(f=>(
+            {["all","1","2","3","4","5"].map(f=>(
               <button key={f} onClick={()=>{setTierFilter(f);setSelected(null)}}
                 style={{padding:"6px 12px",borderRadius:7,fontSize:10,fontWeight:600,
                   background:tierFilter===f?(f==="all"?"#2563EB":tierMeta[parseInt(f)]?.color||"#666")+"18":"transparent",
                   color:tierFilter===f?(f==="all"?"#60A5FA":tierMeta[parseInt(f)]?.color||"#fff"):"#334155",
                   border:`1px solid ${tierFilter===f?"#253060":"transparent"}`}}>
-                {f==="all"?"All 12":`T${f}: ${tierMeta[parseInt(f)]?.label}`}
+                {f==="all"?"All 16":`T${f}: ${tierMeta[parseInt(f)]?.label}`}
               </button>
             ))}
           </div>
@@ -439,7 +534,7 @@ export default function ProjectPortfolio(){
 
         {/* Project cards list */}
         {selected===null&&(<div>
-          {[1,2,3,4].filter(t=>tierFilter==="all"||parseInt(tierFilter)===t).map(tier=>(
+          {[1,2,3,4,5].filter(t=>tierFilter==="all"||parseInt(tierFilter)===t).map(tier=>(
             <div key={tier} style={{marginBottom:20}}>
               <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
                 <div style={{width:4,height:20,borderRadius:2,background:tierMeta[tier].color}}/>
