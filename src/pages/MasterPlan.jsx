@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// 24-WEEK MASTER PLAN — maps to all dashboards
+// 30-WEEK MASTER PLAN — maps to all dashboards
 const plan = [
   { wk:1, phase:"Foundation", color:"#3B82F6", focus:"Python core + SQL basics + 5G intro",
     daily:[
@@ -13,7 +13,7 @@ const plan = [
     ],
     certs:["Start: MATLAB Onramp (MathWorks, free — do in evenings)"],
     project:null,
-    linkedin:"Post: 'Starting my 24-week tech skills + 5G mastery journey. Here's my roadmap...'",
+    linkedin:"Post: 'Starting my 30-week tech skills + 5G mastery journey. Here's my roadmap...'",
     tickOff:["Tech Skills: Python core topics","Tech Skills: SQL fundamentals","5G Path S1: LTE Fundamentals topic","5G Path S6: 5G Fundamentals topic","Career Center: 5 job bookmarks"] },
 
   { wk:2, phase:"Foundation", color:"#3B82F6", focus:"Python data + SQL advanced + 5G protocols",
@@ -339,13 +339,98 @@ const plan = [
     ],
     certs:null,
     project:null,
-    linkedin:"ARTICLE: '6 months, 10 skills, 13 projects, 8 certifications — my complete transformation'",
-    tickOff:["ALL dashboards: 100% complete 🎉","Career Center: 50+ applications","LinkedIn: 6 articles published","All certifications earned"] },
+    linkedin:"ARTICLE: '6 months of core training complete — entering TelcoCloud specialization — my complete transformation'",
+    tickOff:["ALL dashboards: 100% complete 🎉","Career Center: 50+ applications","LinkedIn: 6 articles published","Core certifications earned"] },
+
+  // ── PHASE 6: TELCOCLOUD & AI SPECIALIZATION (Weeks 25–30) ──
+  { wk:25, phase:"TelcoCloud", color:"#7C3AED", focus:"OpenStack + NFV/MANO fundamentals",
+    daily:[
+      {t:"6:00–7:00",task:"OpenStack: architecture — Nova (compute), Neutron (networking), Cinder (storage), Keystone (auth)",cat:"Cloud",dash:"TelcoCloud → OpenStack"},
+      {t:"7:00–8:00",task:"OpenStack: install DevStack on Ubuntu VM, launch instances, create networks",cat:"Cloud",dash:"TelcoCloud → OpenStack hands-on"},
+      {t:"8:00–9:00",task:"NFV architecture: ETSI NFV framework — NFVI, VNF, MANO layers",cat:"5G",dash:"TelcoCloud → NFV/MANO"},
+      {t:"9:00–10:00",task:"MANO: VNF lifecycle — onboard, instantiate, scale, heal, terminate",cat:"5G",dash:"TelcoCloud → MANO lifecycle"},
+      {t:"10:00–10:45",task:"Install Open Source MANO (OSM), explore dashboard, onboard first VNF package",cat:"5G",dash:"TelcoCloud → OSM hands-on"},
+      {t:"10:45–11:30",task:"Career: apply to 5 TelcoCloud roles + connect with NFV engineers on LinkedIn",cat:"Career",dash:"Career Center"},
+    ],
+    certs:["Start: Red Hat OpenShift Administrator (EX280) study"],
+    project:"Start: Project A — Cloud-Native 5G Core on OpenStack",
+    linkedin:"Post: 'Starting my TelcoCloud specialization — OpenStack is where carriers actually run their 5G networks'",
+    tickOff:["OpenStack architecture understood","DevStack deployed + instances running","NFV/ETSI framework understood","OSM installed + first VNF onboarded","Project A: steps 1-3"] },
+
+  { wk:26, phase:"TelcoCloud", color:"#7C3AED", focus:"OpenStack 5GC + Advanced K8s for Telecom",
+    daily:[
+      {t:"6:00–7:00",task:"Deploy Open5GS on OpenStack — create virtual networks for N2/N3/N6 with Neutron",cat:"Cloud",dash:"TelcoCloud → OpenStack 5GC"},
+      {t:"7:00–8:00",task:"Compare: 5GC on OpenStack vs Docker vs K8s — performance, complexity, use cases",cat:"Cloud",dash:"TelcoCloud → Comparison"},
+      {t:"8:00–9:00",task:"Advanced K8s: Multus CNI — multiple network interfaces for 5G user/control plane separation",cat:"Tech",dash:"TelcoCloud → K8s Multus"},
+      {t:"9:00–10:00",task:"Advanced K8s: SR-IOV for hardware-accelerated UPF, DPDK for fast packet processing",cat:"Tech",dash:"TelcoCloud → SR-IOV + DPDK"},
+      {t:"10:00–10:45",task:"Red Hat OpenShift: architecture, Operators, Routes, BuildConfigs — how carriers use it",cat:"Tech",dash:"TelcoCloud → OpenShift"},
+      {t:"10:45–11:30",task:"Complete Project A: document architecture, benchmark results, push to GitHub",cat:"Portfolio",dash:"Project A complete"},
+    ],
+    certs:["Continue: OpenShift study + practice labs"],
+    project:"Complete: Project A — Cloud-Native 5G Core on OpenStack ✓",
+    linkedin:"Post: 'Deployed a 5G Core on OpenStack vs Kubernetes — here's what I learned about carrier cloud infrastructure'",
+    tickOff:["Open5GS running on OpenStack ✓","OpenStack vs Docker vs K8s comparison documented","Multus CNI + SR-IOV + DPDK concepts understood","OpenShift basics learned","Project A complete ✓"] },
+
+  { wk:27, phase:"TelcoCloud", color:"#7C3AED", focus:"Full MANO deployment + Service Mesh + Edge",
+    daily:[
+      {t:"6:00–7:00",task:"OSM advanced: onboard containerized Open5GS as CNF, configure day-1/day-2 primitives",cat:"5G",dash:"TelcoCloud → OSM advanced"},
+      {t:"7:00–8:00",task:"ONAP overview: architecture, SO (Service Orchestrator), DCAE (analytics), policy framework",cat:"5G",dash:"TelcoCloud → ONAP"},
+      {t:"8:00–9:00",task:"Service Mesh: Istio/Envoy for NF-to-NF communication — sidecar proxy, traffic mgmt, mTLS",cat:"Tech",dash:"TelcoCloud → Service Mesh"},
+      {t:"9:00–10:00",task:"Start Project C: Full MANO deployment — OSM + Open5GS CNF + auto-scaling + self-healing",cat:"Portfolio",dash:"Project C: MANO"},
+      {t:"10:00–10:45",task:"Edge computing: MEC architecture, AWS Wavelength, Azure Operator Nexus, Google Distributed Cloud",cat:"Cloud",dash:"TelcoCloud → Edge/MEC"},
+      {t:"10:45–11:30",task:"Career: research TelcoCloud job postings, identify top 10 target roles",cat:"Career",dash:"Career Center"},
+    ],
+    certs:["Target: Red Hat OpenShift Administrator (EX280) exam week 28"],
+    project:"Start: Project C — Full MANO Deployment with OSM",
+    linkedin:"Post: 'MANO orchestration is how carriers automate VNF lifecycle at scale — here is how OSM works...'",
+    tickOff:["OSM CNF onboarding complete","ONAP architecture understood","Istio service mesh basics","MEC/edge computing concepts","Project C: steps 1-4"] },
+
+  { wk:28, phase:"TelcoCloud", color:"#7C3AED", focus:"MLOps for Telecom + Edge project",
+    daily:[
+      {t:"6:00–7:00",task:"MLOps fundamentals: ML lifecycle — data → train → package → deploy → monitor → retrain",cat:"AI",dash:"AI Telecom → MLOps"},
+      {t:"7:00–8:00",task:"MLOps tools: MLflow (experiment tracking), Kubeflow (K8s ML pipelines), SageMaker overview",cat:"AI",dash:"AI Telecom → MLOps tools"},
+      {t:"8:00–9:00",task:"Time-series ML for telecom: LSTM, Prophet, Temporal Fusion Transformer for KPI forecasting",cat:"AI",dash:"AI Telecom → Time-series"},
+      {t:"9:00–10:00",task:"Complete Project C: test scaling under load, self-healing (kill NF → auto-restart), document",cat:"Portfolio",dash:"Project C complete"},
+      {t:"10:00–10:45",task:"Start Project D: Edge Computing — deploy low-latency app on AWS Wavelength + connect to 5GC",cat:"Portfolio",dash:"Project D: Edge"},
+      {t:"10:45–11:30",task:"OpenShift exam final prep + LinkedIn post",cat:"Cert",dash:"Certification"},
+    ],
+    certs:["PASS: Red Hat OpenShift Administrator (EX280) 🎩"],
+    project:"Complete: Project C (MANO) ✓ | Start: Project D (Edge)",
+    linkedin:"Post: 'Passed OpenShift admin cert — here's why carriers choose OpenShift over vanilla K8s for 5G'",
+    tickOff:["MLOps fundamentals + tools understood","Time-series ML for telecom learned","Project C complete ✓","OpenShift certification ✓","Project D: steps 1-3"] },
+
+  { wk:29, phase:"TelcoCloud", color:"#7C3AED", focus:"MLOps pipeline project + AIOps",
+    daily:[
+      {t:"6:00–7:00",task:"Complete Project D: demonstrate URLLC latency (<10ms) through edge, benchmark vs cloud",cat:"Portfolio",dash:"Project D complete"},
+      {t:"7:00–8:00",task:"Start Project B: MLOps Pipeline — Kafka ingestion → feature eng → LSTM train → K8s deploy",cat:"Portfolio",dash:"Project B: MLOps Pipeline"},
+      {t:"8:00–9:00",task:"Project B: FastAPI inference endpoint + Grafana dashboard (predictions vs actual KPIs)",cat:"Portfolio",dash:"Project B: Dashboard"},
+      {t:"9:00–10:00",task:"AIOps: automated root cause analysis, anomaly detection on logs/metrics, predictive scaling",cat:"AI",dash:"AI Telecom → AIOps"},
+      {t:"10:00–10:45",task:"Project B: automated retraining pipeline (MLflow) when accuracy drops below threshold",cat:"Portfolio",dash:"Project B: Retraining"},
+      {t:"10:45–11:30",task:"Career: apply to 10 TelcoCloud + AI/ML telecom roles with updated resume",cat:"Career",dash:"Career Center"},
+    ],
+    certs:["Optional: AWS Networking Specialty study"],
+    project:"Complete: Project D (Edge) ✓ | Progress: Project B (MLOps Pipeline)",
+    linkedin:"ARTICLE: 'TelcoCloud + AI: How I built an end-to-end MLOps pipeline for 5G network optimization'",
+    tickOff:["Project D complete ✓","Project B: 70% complete","AIOps concepts understood","MLOps pipeline deployed on K8s"] },
+
+  { wk:30, phase:"TelcoCloud", color:"#7C3AED", focus:"Complete everything — TelcoCloud Engineer ready",
+    daily:[
+      {t:"6:00–7:00",task:"Complete Project B: full MLOps pipeline running, documented, pushed to GitHub",cat:"Portfolio",dash:"Project B complete"},
+      {t:"7:00–8:00",task:"Portfolio: update career-hub website with all TelcoCloud projects + new certs",cat:"Portfolio",dash:"Career Hub website"},
+      {t:"8:00–9:00",task:"Resume: create TelcoCloud-specific resume variant highlighting NFV, MANO, OpenStack, K8s, MLOps",cat:"Career",dash:"Career Center → Resume"},
+      {t:"9:00–10:00",task:"Review: go through ALL dashboards, tick off any remaining items across all 6",cat:"Review",dash:"All dashboards"},
+      {t:"10:00–10:45",task:"Apply to 15 TelcoCloud / AI Telecom roles with tailored resumes",cat:"Career",dash:"Career Center → Jobs"},
+      {t:"10:45–11:30",task:"Publish final LinkedIn article: '30 weeks — from PhD researcher to TelcoCloud + AI engineer'",cat:"LinkedIn",dash:"LinkedIn"},
+    ],
+    certs:null,
+    project:"Complete: Project B (MLOps Pipeline) ✓ — ALL 17 PROJECTS DONE",
+    linkedin:"ARTICLE: '30 weeks, 12 skills, 17 projects, 10 certifications — the complete TelcoCloud + AI transformation'",
+    tickOff:["Project B complete ✓","ALL 17 projects complete 🎉","Career hub updated with TelcoCloud content","TelcoCloud resume variant created","15+ TelcoCloud job applications sent","ALL dashboards 100% ✓"] },
 ];
 
-const phaseColors = {Foundation:"#3B82F6",Core:"#FF9900",Advanced:"#10B981",Expert:"#F59E0B",Mastery:"#E8553D"};
-const catColors = {Tech:"#3B82F6","5G":"#10B981",Certification:"#F59E0B",Career:"#8B5CF6",LinkedIn:"#2563EB",Portfolio:"#EC4899",Review:"#64748B"};
-function getCatColor(dash){if(dash.includes("Tech"))return catColors.Tech;if(dash.includes("5G"))return catColors["5G"];if(dash.includes("Cert"))return catColors.Certification;if(dash.includes("Career"))return catColors.Career;if(dash.includes("LinkedIn"))return catColors.LinkedIn;if(dash.includes("Portfolio")||dash.includes("Project"))return catColors.Portfolio;return catColors.Review;}
+const phaseColors = {Foundation:"#3B82F6",Core:"#FF9900",Advanced:"#10B981",Expert:"#F59E0B",Mastery:"#E8553D",TelcoCloud:"#7C3AED"};
+const catColors = {Tech:"#3B82F6","5G":"#10B981",Certification:"#F59E0B",Career:"#8B5CF6",LinkedIn:"#2563EB",Portfolio:"#EC4899",Review:"#64748B",Cloud:"#7C3AED",AI:"#FF6B35",Cert:"#F59E0B"};
+function getCatColor(dash){if(dash.includes("TelcoCloud"))return catColors.Cloud;if(dash.includes("AI Telecom"))return catColors.AI;if(dash.includes("Tech"))return catColors.Tech;if(dash.includes("5G"))return catColors["5G"];if(dash.includes("Cert"))return catColors.Certification;if(dash.includes("Career"))return catColors.Career;if(dash.includes("LinkedIn"))return catColors.LinkedIn;if(dash.includes("Portfolio")||dash.includes("Project"))return catColors.Portfolio;return catColors.Review;}
 
 export default function MasterPlan(){
   const[selWeek,setSelWeek]=useState(0);
@@ -376,9 +461,9 @@ export default function MasterPlan(){
         <div style={{maxWidth:880,margin:"0 auto"}}>
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:12}}>
             <div style={{display:"flex",alignItems:"center",gap:11}}>
-              <div style={{width:36,height:36,borderRadius:9,background:"linear-gradient(135deg,#E8553D,#3B82F6)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:14,fontWeight:800,fontFamily:"Syne",color:"#fff"}}>24</div>
+              <div style={{width:36,height:36,borderRadius:9,background:"linear-gradient(135deg,#E8553D,#7C3AED)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:14,fontWeight:800,fontFamily:"Syne",color:"#fff"}}>30</div>
               <div><h1 style={{fontSize:15,fontWeight:800,fontFamily:"Syne",color:"#F1F5F9"}}>Master Plan</h1>
-              <p style={{fontSize:9,color:"#334155",fontFamily:"Space Mono",letterSpacing:1}}>24 WEEKS · ALL DASHBOARDS · ALL SKILLS · ALL CERTS</p></div>
+              <p style={{fontSize:9,color:"#334155",fontFamily:"Space Mono",letterSpacing:1}}>30 WEEKS · ALL DASHBOARDS · ALL SKILLS · ALL CERTS</p></div>
             </div>
             <div style={{textAlign:"right"}}><div style={{fontSize:18,fontWeight:800,fontFamily:"Syne",color:overallPct>=50?"#10B981":"#3B82F6"}}>{overallPct}%</div><div style={{fontSize:8,color:"#334155"}}>{totalDone}/{totalTicks} done</div></div>
           </div>
@@ -392,7 +477,7 @@ export default function MasterPlan(){
 
         {/* Stats */}
         <div className="up" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8,marginBottom:14}}>
-          {[{l:"Week",v:`${selWeek+1}/24`,c:w.color},{l:"Phase",v:w.phase,c:phaseColors[w.phase]},{l:"Certs Earned",v:certsEarned,c:"#F59E0B"},{l:"Overall",v:`${overallPct}%`,c:overallPct>=50?"#10B981":"#3B82F6"}].map((s,i)=>(
+          {[{l:"Week",v:`${selWeek+1}/30`,c:w.color},{l:"Phase",v:w.phase,c:phaseColors[w.phase]},{l:"Certs Earned",v:certsEarned,c:"#F59E0B"},{l:"Overall",v:`${overallPct}%`,c:overallPct>=50?"#10B981":"#3B82F6"}].map((s,i)=>(
             <div key={i} style={{...S.card,padding:"12px 8px",textAlign:"center"}}><div style={{fontSize:18,fontWeight:800,fontFamily:"Syne",color:s.c}}>{s.v}</div><div style={{fontSize:9,color:"#334155",marginTop:2}}>{s.l}</div></div>
           ))}
         </div>
@@ -472,7 +557,7 @@ export default function MasterPlan(){
         </div>)}
 
       </main>
-      <footer style={{textAlign:"center",padding:"28px 16px 36px",fontSize:9,fontFamily:"Space Mono",color:"#111828",letterSpacing:1.5}}>MASTER PLAN · 24 WEEKS · ALL DASHBOARDS UNIFIED</footer>
+      <footer style={{textAlign:"center",padding:"28px 16px 36px",fontSize:9,fontFamily:"Space Mono",color:"#111828",letterSpacing:1.5}}>MASTER PLAN · 30 WEEKS · ALL DASHBOARDS UNIFIED</footer>
     </div>
   );
 }
